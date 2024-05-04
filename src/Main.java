@@ -1,3 +1,4 @@
+import db.DB;
 import model.entities.Department;
 import model.entities.Seller;
 
