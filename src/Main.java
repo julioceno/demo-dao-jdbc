@@ -5,12 +5,27 @@ import model.entities.Department;
 import model.entities.Seller;
 
 import java.util.Date;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
-        Seller seller = sellerDao.findById(3);
+         Seller seller = sellerDao.findById(3);
         System.out.println(seller);
+
+        System.out.println("\n===  Test2: Seller findByDeparment ====");
+        Department department = new Department(2, null);
+        List<Seller> list = sellerDao.findByDeparment(department);
+
+        for (Seller obj : list) {
+            System.out.println(obj);
+        }
+
+        System.out.println("\n===  Test3: Seller findAll ====");
+        list = sellerDao.findall();
+        for (Seller obj : list) {
+            System.out.println(obj);
+        }
     }
 }
